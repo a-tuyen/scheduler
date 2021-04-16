@@ -6,7 +6,7 @@ const classNames = require('classnames');
 
 export default function Button(props) {
    let buttonClass = classNames({
-      button: true,
+      'button': true,
       'button--confirm': props.confirm,
       'button--danger': props.danger,
    });
