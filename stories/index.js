@@ -19,7 +19,7 @@ import Show from "components/Appointment/Show.js";
 import Confirm from "components/Appointment/Confirm.js";
 import Status from "components/Appointment/Status.js";
 import Error from "components/Appointment/Error.js";
-
+import Form from "components/Appointment/Form.js";
 
 
 storiesOf("Button", module)
@@ -148,9 +148,10 @@ storiesOf("DayListItem", module)
         .add("Empty", () => <Empty onAdd={action("onAdd")} />)
         .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer.name} onEdit={action("onEdit")} onDelete={action("onDelete")}/>)
         .add("Confirm", () => <Confirm message="Delete the appointment?" onConfirm={action("onConfirm")} onCancel={action("onCancel")} />)
-        .add("Status", <Status messsage="Deleting" />)
+        .add("Status", () => <Status message="Deleting" />)
         .add("Error", () => <Error message="Could not delete appointment." onClose={action("onClose")} />)
-
+        .add("Form with Edit", () => <Form name="Lydia Miller-Jones" interviewers={interviewers} interviewer={interviewer.id} onSave={action("onSave")} onCancel={action("onCancel")} />)
+        .add("Form with Create", () => <Form interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")} />)
 
 
 
