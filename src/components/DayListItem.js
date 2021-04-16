@@ -6,6 +6,7 @@ const classNames = require('classnames');
 
 export default function DayListItem(props) {
 
+
   const formatSpots = (props) => {
     if (props === 0) {
       return 'no spots remaining';
