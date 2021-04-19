@@ -148,7 +148,7 @@ storiesOf("DayListItem", module)
         .add("Appointment with time", () => <Appointment time="12pm" />)
         .add("Header", () => <Header time="12pm" />)
         .add("Empty", () => <Empty onAdd={action("onAdd")} />)
-        .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer.name} onEdit={action("onEdit")} onDelete={action("onDelete")}/>)
+        .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer} onEdit={action("onEdit")} onDelete={action("onDelete")}/>)
         .add("Confirm", () => <Confirm message="Delete the appointment?" onConfirm={action("onConfirm")} onCancel={action("onCancel")} />)
         .add("Status", () => <Status message="Deleting" />)
         .add("Error", () => <Error message="Could not delete appointment." onClose={action("onClose")} />)
@@ -165,7 +165,7 @@ storiesOf("DayListItem", module)
             <Appointment
               id={1}
               time="12pm"
-              interview={{ student: "Lydia Miller-Jones", interviewer: interviewer.name }}
+              interview={{ student: "Lydia Miller-Jones", interviewer }}
             />
             <Appointment id="last" time="1pm" />
           </Fragment>
