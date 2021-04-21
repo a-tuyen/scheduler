@@ -1,9 +1,8 @@
 
 
 
-export function getAppointmentsForDay (state, day) {
-  // const apptForDay = state.days.filter(day => user.name === name);
-  // return filteredNames;
+export function getAppointmentsForDay(state, day) {
+  
   const dayFound = state.days.find(eachDay => eachDay.name === day);
 
   if (!dayFound) {
