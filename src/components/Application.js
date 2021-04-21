@@ -58,6 +58,7 @@ const appointments = [
 
 export default function Application(props) {
 
+  const [day, setDay] = useState('Monday');
   const [days, setDays] = useState([]);
 
   useEffect(() => {
@@ -74,9 +75,6 @@ export default function Application(props) {
       <Appointment
       key={appointment.id}
       {...appointment}
-      // id={appointment.id}
-      // time={appointment.time}
-      // interview={appointment.interview}
       />
     )
   })
@@ -94,8 +92,8 @@ export default function Application(props) {
 <nav className="sidebar__menu">
 <DayList
   days={days}
-  day={props.day}
-  setDays={setDays}
+  day={day}
+  setDay={setDay}
 />
 </nav>
 <img
