@@ -28,4 +28,3 @@ export default function useVisualMode(initial) {
     return { mode, transition, back };
 }
 
-// Form, status(error), show
