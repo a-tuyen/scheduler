@@ -33,8 +33,8 @@ export function getInterviewersForDay(state, day) {
   if (state.days.length === 0) {
     return [];
   }
-  console.log('DAYFOUND:', dayFound);
+
   const interviewers = dayFound.interviewers.map(interviewerId => state.interviewers[interviewerId]);
-  console.log('INTERVIEWERS:', interviewers)
+
   return interviewers;
 }
