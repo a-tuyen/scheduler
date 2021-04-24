@@ -6,7 +6,7 @@ import "components/Application.scss";
 import DayList from "components/DayList.js"
 
 import Appointment from "components/Appointment";
-import InterviewerListItem from "./InterviewerListItem";
+
 
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
 
