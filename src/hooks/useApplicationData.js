@@ -96,7 +96,7 @@ export default function useApplicationData() {
 
     const days = [...spotsRemaining(state.day, state.days, appointments)];
 
-    return axios.delete(`/api/appointments/${id}`, {})
+    return axios.delete(`/api/appointments/${id}`)
     .then(() => {
       setState({ ...state, 
         appointments, 
