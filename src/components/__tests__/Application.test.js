@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, cleanup, waitForElement, fireEvent, getAllByTestId, getByText, getByAltText, getByPlaceholderText, queryByText, queryByAltText, prettyDOM } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, getAllByTestId, getByText, getByAltText, getByPlaceholderText, queryByText, queryByAltText } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -137,35 +137,30 @@ describe("Application", () => {
 
     await waitForElement(() => queryByText(appointment, "Error"));
  
-    expect(getByText(appointment, "Could not save appointment.")).toBeInTheDocument();
+    expect(getByText(appointment, "Could not save appointment")).toBeInTheDocument();
 
   });
 
   it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
 
-     // 1. Render the Application.
     const { container } = render(<Application />);
-    // 2. Wait until the text "Archie Cohen" is displayed.
+
     await waitForElement(() => getByText(container, "Archie Cohen"));
-    // 3. Click the "Edit" button on the "Archie Cohen" appointment.
+
     const appointment = getAllByTestId(container, "appointment").find(
       appointment => queryByText(appointment, "Archie Cohen"));
 
       fireEvent.click(queryByAltText(appointment, "Delete"));
 
-    // 4. Check that the confirmation message is shown.
     expect(getByText(appointment, "Delete the appointment?")).toBeInTheDocument();
 
-    // 5.Click on the "Confirm" button on the confirmation msg.
     fireEvent.click(getByText(appointment, "Confirm"));
 
-    // 6. Check that the element with "Deleting" is displayed
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
    
     await waitForElement(() => queryByText(appointment, "Error"));
 
-    expect(getByText(appointment, "Could not delete appointment.")).toBeInTheDocument();
-    console.log(prettyDOM(appointment))
+    expect(getByText(appointment, "Could not delete appointment")).toBeInTheDocument();
   });
 })

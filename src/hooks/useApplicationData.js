@@ -12,6 +12,7 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+
   useEffect(() => {
     const getDaysPromise = axios.get('/api/days');
     const getAppointmentsPromise = axios.get('/api/appointments');
@@ -31,20 +32,8 @@ export default function useApplicationData() {
       })
     }, [])
 
-  // const getSpotsForDay = (dayObj, appointments) => {
-  //   return dayObj.reduce((spotAccumulator, id) => {
-  //     const appointment = appointments[id];
-  //     // if (!appointment.interview) {
-  //     //   return spotAccumulator++;
-  //     // } else
-  //     return (appointment.interview === null) ? spotAccumulator : spotAccumulator++;
-
-  //   }, 0)
-  // }
-
 
   const getSpotsForDay = (dayObj, appointments) => {
-    // console.log('dayObj', dayObj, 'appts', appointments)
     let spots = 0;
     for (const id of dayObj.appointments) {
       const appointment = appointments[id];
@@ -55,6 +44,7 @@ export default function useApplicationData() {
     return spots;
   };
 
+
   const spotsRemaining = (dayName, days, appointments) => {
     const dayObj = days.find(day => day.name === dayName);
     const spots = getSpotsForDay(dayObj, appointments);
@@ -63,6 +53,7 @@ export default function useApplicationData() {
 
     return newDays;
   };
+
 
   const bookInterview = (id, interview) => {
     const appointment = {
@@ -81,6 +72,7 @@ export default function useApplicationData() {
         setState({...state, appointments, days})
       })
   }
+
 
   const cancelInterview = (id) => {
 
@@ -102,8 +94,9 @@ export default function useApplicationData() {
         appointments, 
         days
       });
-    })
+    });
   }
+
 
   return {
     state,

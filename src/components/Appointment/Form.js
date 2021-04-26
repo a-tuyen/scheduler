@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import Button from "components/Button.js";
+import Button from "components/Button";
+
 import InterviewerList from "components/InterviewerList";
 
 export default function Form (props) {
@@ -18,11 +19,8 @@ export default function Form (props) {
     props.onCancel();
   }
 
-  // const save = () => {
-  //   props.onSave(name, interviewer);
-  // };
-
   function validate() {
+
     if (name === "") {
       setError("Student name cannot be blank");
       return;
