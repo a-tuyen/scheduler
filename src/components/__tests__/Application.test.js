@@ -99,7 +99,7 @@ describe("Application", () => {
 
     // 5. Click the first interviewer in the list.
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
-    // console.log(prettyDOM(appointment))
+
     // 6. Click the "Save" button on that same appointment.
     fireEvent.click(getByText(appointment, "Save"));
     // 7. Check that the element with the text "Saving" is displayed.
