@@ -44,7 +44,7 @@ export default function useApplicationData() {
 
 
   const getSpotsForDay = (dayObj, appointments) => {
-    console.log('dayObj', dayObj, 'appts', appointments)
+    // console.log('dayObj', dayObj, 'appts', appointments)
     let spots = 0;
     for (const id of dayObj.appointments) {
       const appointment = appointments[id];
